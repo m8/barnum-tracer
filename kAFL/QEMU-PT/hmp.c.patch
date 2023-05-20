@@ -222,5 +222,5 @@
 >         }
 >         free(new_filename);
 >         qapi_free_CpuInfoList(cpu_list);
-> }
-> 
+> } void hmp_pt_cr3_filtering(Monitor *mon, const QDict *qdict) { int cpuid; uint64_t cr3; cpuid = hmp_pt_get_cpuid(mon, qdict); if (!hmp_pt_check_kvm(mon) || (cpuid < 0)){return;} cr3 = qdict_get_int(qdict, "cr3"); hmp_pt_enable_cr3_filtering_cpu(mon, cpuid, cr3);}
+> static inline void hmp_pt_enable_cr3_filtering_cpu(Monitor *mon, int cpuid, uint64_t cr3) { if (!pt_set_cr3(qemu_get_cpu(cpuid), cr3, false)) {monitor_printf(mon, "enabled for cpu %d\n", cpuid);} else {monitor_printf(mon, "failed to enable for cpu %d\n", cpuid);}}
