@@ -36,7 +36,6 @@
 >     uint64_t pt_c3_filter;
 > 
 >     FILE *pt_target_file;
->     bool reload_pending;
-> 
+>     bool reload_pending; bool pt_cr3_filter_enabled;
 > #endif
 > 
