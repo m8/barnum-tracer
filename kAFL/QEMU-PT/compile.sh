@@ -16,5 +16,5 @@
 # along with QEMU-PT.  If not, see <http://www.gnu.org/licenses/>.
 
 ./configure --target-list=x86_64-softmmu --enable-gtk --enable-pt  
-make -j 8
+make -j 20
 
