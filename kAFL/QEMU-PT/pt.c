@@ -136,6 +136,11 @@ void pt_dump(CPUState *cpu, int bytes){
 			}
 			decode_buffer(cpu->pt_decoder_state[i], cpu->pt_mmap, bytes);
 		}
+		if(cpu->pt_cr3_filter_enabled){
+			if (cpu->pt_target_file){
+				fwrite(cpu->pt_mmap, sizeof(char), bytes, cpu->pt_target_file);
+			}
+		}
 	}
 	cpu->trace_size += bytes;
 }
@@ -173,6 +178,7 @@ int pt_set_cr3(CPUState *cpu, uint64_t val, bool hmp_mode){
 	if (cpu->pt_enabled){
 		return -EINVAL;
 	}
+	cpu->pt_cr3_filter_enabled = true;
 	cpu->pt_c3_filter = val;
 	r += pt_cmd(cpu, KVM_VMX_PT_CONFIGURE_CR3, hmp_mode);
 	r += pt_cmd(cpu, KVM_VMX_PT_ENABLE_CR3, hmp_mode);

@@ -92,6 +92,13 @@ ETEXI
     .help       = "set output file for all specified vcpu (postfix: _cpuid)",
     .cmd  = hmp_pt_set_file,
 },
+{
+    .name      = "cr3_filtering",
+    .args_type = "id:i,cr3:l",
+    .params    = "id cr3",
+    .help      = "enables cr3-filtering for specified vcpu",
+    .cmd       = hmp_pt_cr3_filtering,
+},
         
 #endif
 
