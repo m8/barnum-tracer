@@ -19,7 +19,7 @@
 >     volatile int pt_cmd;
 >     volatile uint64_t pt_arg;
 >     volatile int pt_ret;
->     volatile bool pt_enabled;
+>     volatile bool pt_enabled;  volatile bool pt_cr3_filter_enabled;
 > 
 >     int pt_fd;
 >     void* pt_mmap;
