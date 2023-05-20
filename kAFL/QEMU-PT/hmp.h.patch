@@ -24,6 +24,5 @@
 > void hmp_pt_status(Monitor *mon, const QDict *qdict);
 > void hmp_pt_status_all(Monitor *mon, const QDict *qdict);
 > void hmp_pt_ip_filtering(Monitor *mon, const QDict *qdict);
-> void hmp_pt_set_file(Monitor *mon, const QDict *qdict);
-> void hmp_pt_cr3_filtering(Monitor *mon, const QDict *qdict);
+> void hmp_pt_set_file(Monitor *mon, const QDict *qdict); void hmp_pt_cr3_filtering(Monitor *mon, const QDict *qdict);
 > #endif
